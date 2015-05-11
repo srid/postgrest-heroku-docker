@@ -1,0 +1,1 @@
+web: postgrest --db-uri=${DATABASE_URL}
