@@ -1,1 +1,1 @@
-web: postgrest --db-uri=${DATABASE_URL}
+web: postgrest -p ${PORT} --db-uri=${DATABASE_URL}

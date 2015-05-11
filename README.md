@@ -4,7 +4,7 @@ Run [postgrest](https://github.com/begriffs/postgrest) on Heroku against Heroku 
 
 ## Deploying
 
-Create a Heroku app with a Postgres addon, and then:
+Create a Heroku app with Postgres addon, and then:
 
 ```
 heroku docker:release --app myapp

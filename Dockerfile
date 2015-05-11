@@ -13,7 +13,6 @@ ENV POSTGREST_REPO "https://github.com/srid/postgrest.git -b heroku"
 RUN git clone ${POSTGREST_REPO} /app/postgres
 WORKDIR /app/postgres
 RUN cabal install
-RUN mkdir -p /app/bin && cp /root/.cabal/bin/postgrest /app/bin
 
 # Startup scripts for heroku
 RUN mkdir -p /app/.profile.d
@@ -27,3 +26,7 @@ EXPOSE 3000
 # ----------
 #
 
+ONBUILD RUN mkdir -p /app/bin && cp /root/.cabal/bin/postgrest /app/bin/
+ONBUILD RUN rm -rf /app/postgres
+ONBUILD ADD Procfile /app/
+ONBUILD WORKDIR /app/
